@@ -44,13 +44,14 @@ class App(tk.Tk):
 
         if not os.path.isfile(DATA_PATH):
             with open(DATA_PATH, "x", encoding="utf-8") as data_file:
-                pass
+                data_file.write("{}")
 
         data = None
         with open(DATA_PATH, "r", encoding="utf-8") as data_file:
             data = data_file.read()
 
-        json_data = json.load(data)
+        json_data = json.loads(data)
+        print(json_data)
 
     def load(self):
         self._read_data()
